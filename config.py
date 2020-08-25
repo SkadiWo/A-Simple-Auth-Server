@@ -1,0 +1,10 @@
+sql_server = "db4free.net"
+sql_user = "mctestdbadmin"
+sql_pwd = "weakpassword"
+sql_port = "3306"
+sql_db = "test_mcdb"
+# redis_server = "redis-15507.c54.ap-northeast-1-2.ec2.cloud.redislabs.com"
+# redis_port = "15507"
+# redis_auth = "rczJtk5HpCavd9X5Ab6XOakXYoTi9jv6"
+token_secret = "zhenzhongjiejiehaobangde"
+
