@@ -20,7 +20,7 @@ app = Flask(__name__)
 @app.route("/register", methods=["POST"])
 def register():
     data = request.get_data()
-    json_data = json.loads(data.decode('utf-8'))
+    json_data = json.loads(data.decode("utf-8"))
     if len(json_data) == 3:
         pass
     else:
@@ -38,7 +38,7 @@ def register():
 @app.route("/login", methods=["POST"])
 def login():
     data = request.get_data()
-    json_data = json.loads(data.decode('utf-8'))
+    json_data = json.loads(data.decode("utf-8"))
     if len(json_data) == 2:
         pass
     else:
@@ -88,7 +88,7 @@ def changerole():
     else:
         pass
     data = request.get_data()
-    json_data = json.loads(data.decode('utf-8'))
+    json_data = json.loads(data.decode("utf-8"))
     if payload_data["role"] == "admin":
         ChangeRole(json_data["account"], json_data["role"])
         return json.dumps(
@@ -112,7 +112,7 @@ def changmode():
     else:
         pass
     data = request.get_data()
-    json_data = json.loads(data.decode('utf-8'))
+    json_data = json.loads(data.decode("utf-8"))
     if payload_data["role"] == "admin":
         ChangeGamemod(json_data["account"], json_data["gamemode"])
         return json.dumps(
@@ -136,7 +136,7 @@ def updateavatar():
     else:
         pass
     data = request.get_data()
-    json_data = json.loads(data.decode('utf-8'))
+    json_data = json.loads(data.decode("utf-8"))
     if payload_data["account"] == json_data["account"]:
         UpdateAvatar(json_data["account"], json_data["avatar"])
         this_user = QueryUser(payload_data["account"])
@@ -170,7 +170,7 @@ def updatenickname():
     else:
         pass
     data = request.get_data()
-    json_data = json.loads(data.decode('utf-8'))
+    json_data = json.loads(data.decode("utf-8"))
     if payload_data["account"] == json_data["account"]:
         UpdateNickname(json_data["account"], json_data["nickname"])
         this_user = QueryUser(payload_data["account"])
@@ -204,7 +204,7 @@ def restpwd():
     else:
         pass
     data = request.get_data()
-    json_data = json.loads(data.decode('utf-8'))
+    json_data = json.loads(data.decode("utf-8"))
     if payload_data["account"] == json_data["account"]:
         this_user = QueryUser(payload_data["account"])
         print(this_user.pwd)
@@ -244,7 +244,7 @@ def getuser():
         return json.dumps({"sucess": False, "message": message})
     else:
         data = request.get_data()
-        json_data = json.loads(data.decode('utf-8'))
+        json_data = json.loads(data.decode("utf-8"))
         this_user = QueryUser(json_data["account"])
         return json.dumps(
             {
@@ -271,7 +271,7 @@ def getalluser():
     else:
         pass
     data = request.get_data()
-    json_data = json.loads(data.decode('utf-8'))
+    json_data = json.loads(data.decode("utf-8"))
     if payload_data["role"] == "admin":
         users = GetUsers(json_data["page"], json_data["pagesize"])
         return json.dumps({"sucess": True, "message": "Successfully!", "data": users})
@@ -280,4 +280,5 @@ def getalluser():
 
 
 if __name__ == "__main__":
-    app.run(debug=True,host="0.0.0.0",port="5000")
+    app.run(debug=True, host="0.0.0.0", port="5000")
+
